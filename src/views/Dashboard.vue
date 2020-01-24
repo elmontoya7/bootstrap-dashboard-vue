@@ -1,5 +1,6 @@
 <template lang="pug">
-  router-view
+  d-layout
+    router-view
 </template>
 
 <script>
@@ -11,10 +12,3 @@ export default {
   }
 };
 </script>
-
-<style media="screen">
-  body, html {
-    width: 100%;
-    height: 100%;
-  }
-</style>

@@ -19,6 +19,19 @@ Vue.use(FeatherWrapper)
 import App from './App.vue';
 import router from './router';
 
+import Config from '@/dashboard.config.js'
+Vue.use({
+  install(Vue, options) {
+    Vue.mixin({
+      data () {
+        return {
+          Config: Config
+        }
+      }
+    })
+  }
+})
+
 ShardsVue.install(Vue);
 
 Vue.config.productionTip = false;

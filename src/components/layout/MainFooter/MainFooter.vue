@@ -3,13 +3,13 @@
     <div :class="[contained ? 'container' : 'container-fluid']">
       <div class="row">
         <ul class="nav">
-          <li v-for="(item, idx) in menuItems" :key="idx" class="nav-item">
-            <d-link class="nav-link" :to="item.to">{{ item.title }}</d-link>
+          <li v-for="(item, index) in Config.footerLinks" :key="index" class="nav-item">
+            <d-link class="nav-link" :to="item.to || item.path">{{ item.title }}</d-link>
           </li>
         </ul>
         <span class="copyright ml-auto my-auto mr-2">
           Made with
-          <heart-icon class="mx-2 icon-sm"></heart-icon>
+          <heart-icon class="mx-1 icon-sm text-danger mb-1"></heart-icon>
           by Torque
         </span>
       </div>
@@ -18,32 +18,13 @@
 </template>
 
 <script>
-const defaultMenuItems = [
-  {
-    title: 'Home',
-    to: '/',
-  }
-];
-
 export default {
   name: 'main-footer',
   props: {
-    /**
-       * The footer menu items.
-       */
-    menuItems: {
-      type: Array,
-      default() {
-        return defaultMenuItems;
-      },
-    },
-    /**
-       * Whether the footer should be wrapped in a container, or not.
-       */
     contained: {
       type: Boolean,
       default: false,
     },
-  },
+  }
 };
 </script>
